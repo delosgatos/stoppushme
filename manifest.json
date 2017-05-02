@@ -1,0 +1,59 @@
+{
+  "manifest_version": 2,
+
+  "name": "STOP PUSH ME",
+  "description": "This extension hide push notifications",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+
+
+  "background": {
+    "scripts": ["notifhook.js"]
+    //,"persistent": false
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "css": ["inject.css"],
+      "js": ["notifhook.js"]
+    }
+  ],
+
+  "web_accessible_resources": [
+    "*",
+    "notifications/*"
+  ],
+
+  "permissions": [
+    "activeTab",
+    "alarms",
+    "background",
+    "bookmarks",
+    "browsingData",
+    "contentSettings",
+    "contextMenus",
+    //"experimental-extension-apis",
+    //"experimental",
+    //"fileBrowserHandler",
+    //"fileSystemProvider",
+    "gcm",
+    "geolocation",
+    "history",
+    "identity",
+    "nativeMessaging",
+    "notifications",
+    "storage",
+    "tabs",
+    "webNavigation",
+    "webRequestBlocking"
+    //"http://www.google.com/*"
+    , "https://*/*", "http://*/*"
+  ],
+
+  "icons": { "128": "gcm_128.png" }
+}
